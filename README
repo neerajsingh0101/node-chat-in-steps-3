@@ -1,0 +1,7 @@
+h2. step1
+
+* create a server that responds with hello world on port 8002
+
+h2. step2
+
+* create an index.html and serve it
