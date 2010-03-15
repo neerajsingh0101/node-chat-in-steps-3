@@ -5,3 +5,9 @@ h2. step1
 h2. step2
 
 * create an index.html and serve it
+
+h2. step3
+
+* introduce util.js
+* change the logic so that any static file is served
+* show 404 in case no file is found
