@@ -11,3 +11,9 @@ h2. step3
 * introduce util.js
 * change the logic so that any static file is served
 * show 404 in case no file is found
+
+h2. step4
+
+* add jquery-1.4.2.js
+* add client.js
+* change index.html to prompt user for nickname
