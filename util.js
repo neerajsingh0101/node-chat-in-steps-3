@@ -1,5 +1,7 @@
 var sys = require('sys'),
 fs = require('fs'),
+qs = require('querystring'),
+url = require('url'),
 util = exports;
 
 util.getMap = [];
@@ -50,4 +52,11 @@ util.staticHandler = function(filename) {
 util.get('/', util.staticHandler('index.html'));
 util.get('/jquery-1.4.2.js', util.staticHandler('jquery-1.4.2.js'));
 util.get('/client.js', util.staticHandler('client.js'));
+
+util.get('/join', function(req, res) {
+	var nick = qs.parse(url.parse(req.url).query).nick;
+	res.simpleJSON(200, {
+		msg: nick + ' joined'
+	});
+});
 

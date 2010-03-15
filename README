@@ -17,3 +17,9 @@ h2. step4
 * add jquery-1.4.2.js
 * add client.js
 * change index.html to prompt user for nickname
+
+h2. step5
+
+* send a join request when user enters nick name
+* respond with a JSON in reply to /join request
+
