@@ -15,7 +15,7 @@ App.config = {
 
 App.onConnect = function(session) {
 	if (session.error) {
-		alert('error connecting :' + session.error);
+		alert(session.error);
 		showConnect();
 		return;
 	}
@@ -50,7 +50,9 @@ $('#connectButton').live('click', function(e) {
 		data: {
 			nick: nick
 		},
-		error: function() {},
+		error: function() {
+      alert('Error connecting to server');
+    },
 		success: App.onConnect
 	});
 
