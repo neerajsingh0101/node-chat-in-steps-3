@@ -33,11 +33,16 @@ h2. step7
 * send this session object back to client when a person joins in
 * if the nick is in use the provide that feedback to user
 
-h2. step7
+h2. step8
 
 * add style.css
 
-
-h2. step8
+h2. step9
 
 * after logging in display current time
+
+h2. step10
+
+* display number of active users logging in
+* after showing the toolbar send a request /who
+* capture the number of active users

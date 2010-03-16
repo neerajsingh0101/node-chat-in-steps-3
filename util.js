@@ -93,3 +93,17 @@ util.get('/join', function(req, res) {
 	});
 });
 
+util.get('/who', function(req, res) {
+	var nicks = [],
+	i,
+	session;
+
+	for (i in util.sessions) {
+		session = util.sessions[i];
+		nicks.push(session.nick);
+	}
+	res.simpleJSON(200, {
+		nicks: nicks
+	});
+});
+

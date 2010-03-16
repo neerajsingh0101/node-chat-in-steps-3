@@ -6,7 +6,8 @@ window.log = function() {
 	}
 };
 
-var App = App || {};
+var App = App || {},
+nicks;
 
 App.util = {};
 
@@ -24,10 +25,19 @@ App.util.timeString = function(date) {
 	return App.util.zeroPad(2, hours) + ':' + App.util.zeroPad(2, minutes);
 };
 
-
 App.config = {
 	nick: null,
 	id: null
+};
+
+App.who = function() {
+	$.getJSON('/who', function(data, status) {
+		if (status !== 'success') {
+			return;
+		}
+		nicks = data.nicks;
+		$('#usersLink').text(nicks.length.toString() + ' user');
+	});
 };
 
 App.onConnect = function(session) {
@@ -38,8 +48,10 @@ App.onConnect = function(session) {
 	}
 	App.config.nick = session.nick;
 	App.config.id = session.id;
+	App.who();
 
 	App.showChat();
+
 };
 
 $('#connectButton').live('click', function(e) {
@@ -101,7 +113,7 @@ $(function() {
 
 	//update the clock every second
 	setInterval(function() {
-    $('#currentTime').text(App.util.timeString(new Date()));
+		$('#currentTime').text(App.util.timeString(new Date()));
 	},
 	1000);
 
