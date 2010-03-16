@@ -23,3 +23,7 @@ h2. step5
 * send a join request when user enters nick name
 * respond with a JSON in reply to /join request
 
+h2. step6
+
+* after ther nick name is accepted display chat screen
+

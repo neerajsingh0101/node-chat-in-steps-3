@@ -6,6 +6,25 @@ window.log = function() {
 	}
 };
 
+var App = App || {};
+
+App.config = {
+	nick: null,
+	id: null
+};
+
+App.onConnect = function(session) {
+	if (session.error) {
+		alert('error connecting :' + session.error);
+		showConnect();
+		return;
+	}
+	App.config.nick = session.nick;
+	App.config.id = session.id;
+
+	App.showChat();
+};
+
 $('#connectButton').live('click', function(e) {
 
 	var nick = $('#nickInput').attr('value');
@@ -32,16 +51,34 @@ $('#connectButton').live('click', function(e) {
 			nick: nick
 		},
 		error: function() {},
-		success: function() {}
+		success: App.onConnect
 	});
 
 	return false;
 
 });
 
-$(function() {
-
+App.showConnect = function() {
+	$('#connect').show();
+	$('#loading').hide();
+	$('#toolbar').hide();
 	$('#nickInput').focus();
+};
+
+App.showLoad = function() {
+	$('#connect').hide();
+	$('#loading').show();
+	$('#toolbar').hide();
+};
+
+App.showChat = function() {
+	$('#connect').hide();
+	$('#loading').hide();
+	$('#toolbar').show();
+};
+
+$(function() {
+	App.showConnect();
 
 });
 

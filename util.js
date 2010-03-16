@@ -56,7 +56,8 @@ util.get('/client.js', util.staticHandler('client.js'));
 util.get('/join', function(req, res) {
 	var nick = qs.parse(url.parse(req.url).query).nick;
 	res.simpleJSON(200, {
-		msg: nick + ' joined'
+		nick: nick,
+		id: 'tbd'
 	});
 });
 
