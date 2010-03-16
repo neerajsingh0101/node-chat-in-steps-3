@@ -32,3 +32,7 @@ h2. step7
 * create session object which identifies if a person is already in
 * send this session object back to client when a person joins in
 * if the nick is in use the provide that feedback to user
+
+h2. step7
+
+* add style.css
