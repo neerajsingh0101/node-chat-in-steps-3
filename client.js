@@ -8,6 +8,23 @@ window.log = function() {
 
 var App = App || {};
 
+App.util = {};
+
+App.util.zeroPad = function(digits, n) {
+	n = n.toString();
+	while (n.length < digits) {
+		n = '0' + n;
+	}
+	return n;
+};
+
+App.util.timeString = function(date) {
+	var minutes = date.getMinutes().toString(),
+	hours = date.getHours().toString();
+	return App.util.zeroPad(2, hours) + ':' + App.util.zeroPad(2, minutes);
+};
+
+
 App.config = {
 	nick: null,
 	id: null
@@ -51,8 +68,8 @@ $('#connectButton').live('click', function(e) {
 			nick: nick
 		},
 		error: function() {
-      alert('Error connecting to server');
-    },
+			alert('Error connecting to server');
+		},
 		success: App.onConnect
 	});
 
@@ -81,6 +98,12 @@ App.showChat = function() {
 
 $(function() {
 	App.showConnect();
+
+	//update the clock every second
+	setInterval(function() {
+    $('#currentTime').text(App.util.timeString(new Date()));
+	},
+	1000);
 
 });
 
