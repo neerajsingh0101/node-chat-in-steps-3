@@ -51,4 +51,8 @@ h2. step11
 
 * display message that user joined after a user joins chat
 
+h2. step12
+
+* better timestamp while displaying message
+
 

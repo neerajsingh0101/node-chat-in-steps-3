@@ -55,6 +55,8 @@ App.addMessage = function(from, text, time, _class) {
 		time = new Date();
 	}
 
+  time = App.util.timeString(time);
+
 	messageElement = $('<table />', {
 		className: 'message'
 	});
@@ -79,7 +81,7 @@ App.onConnect = function(session) {
 	App.config.nick = session.nick;
 	App.config.id = session.id;
 	App.who();
-  App.userJoin(App.config.nick, new Date().getTime());
+  App.userJoin(App.config.nick, new Date());
 	App.showChat();
 
 };
