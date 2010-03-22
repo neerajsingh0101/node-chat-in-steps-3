@@ -40,6 +40,36 @@ App.who = function() {
 	});
 };
 
+App.userJoin = function(nick, timestamp) {
+	App.addMessage(nick, 'joined', timestamp, 'join');
+};
+
+App.addMessage = function(from, text, time, _class) {
+	var messageElement, content;
+	if (!text) {
+		return;
+	}
+
+	if (!time) {
+		// if time is not mentioned then use current time
+		time = new Date();
+	}
+
+	messageElement = $('<table />', {
+		className: 'message'
+	});
+
+	if (_class) {
+		messageElement.addClass(_class);
+	}
+
+	content = '<tr>' + "<td class='date'>" + time + "</td>" + "<td class='nick'>" + from + "</td>" + "<td class='msg-text'>" + text + "</td>" + "</tr>";
+	messageElement.html(content);
+
+	$('#log').append(messageElement);
+
+};
+
 App.onConnect = function(session) {
 	if (session.error) {
 		alert(session.error);
@@ -49,7 +79,7 @@ App.onConnect = function(session) {
 	App.config.nick = session.nick;
 	App.config.id = session.id;
 	App.who();
-
+  App.userJoin(App.config.nick, new Date().getTime());
 	App.showChat();
 
 };

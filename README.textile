@@ -46,3 +46,9 @@ h2. step10
 * display number of active users logging in
 * after showing the toolbar send a request /who
 * capture the number of active users
+
+h2. step11
+
+* display message that user joined after a user joins chat
+
+
