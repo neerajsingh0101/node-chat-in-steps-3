@@ -37,7 +37,7 @@ node server.js
 After the server has been started visit "http://localhost:8002":http://localhost:8002 .
 
 
-h2. Functinalities in different steps
+h2. Functionalities in different steps
 
 h3. step1
 
@@ -99,3 +99,4 @@ h3. step12
 h3. step13
 
 * when user hits enter then invoke send function
+
