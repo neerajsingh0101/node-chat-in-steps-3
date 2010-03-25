@@ -55,7 +55,7 @@ App.addMessage = function(from, text, time, _class) {
 		time = new Date();
 	}
 
-  time = App.util.timeString(time);
+	time = App.util.timeString(time);
 
 	messageElement = $('<table />', {
 		className: 'message'
@@ -81,7 +81,7 @@ App.onConnect = function(session) {
 	App.config.nick = session.nick;
 	App.config.id = session.id;
 	App.who();
-  App.userJoin(App.config.nick, new Date());
+	App.userJoin(App.config.nick, new Date());
 	App.showChat();
 
 };
@@ -119,6 +119,15 @@ $('#connectButton').live('click', function(e) {
 
 	return false;
 
+});
+
+$('#entry').live('keypress', function(e) {
+	if (e.keyCode != 13) {
+		return;
+	}
+	var msg = $('#entry').attr('value').replace('\n', '');
+	App.send(msg);
+	$('#entry').attr('value', '');
 });
 
 App.showConnect = function() {

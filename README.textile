@@ -1,58 +1,101 @@
-h2. step1
+h2. node-chat-in-steps
+
+"node-chat":http://chat.nodejs.org is a good working example of the power of "nodejs":http://nodejs.org/ . However some people have trouble getting started with the "source code":http://github.com/ry/node_chat of node-chat application. In order to help to you get started I have developed the skeleton of application in 12 different steps.
+
+The step1 is "as simple as this":http://github.com/neerajdotname/node-chat-in-steps/raw/step1/server.js .
+
+h2. Installing nodejs
+
+I developed this application with node version 0.1.32 . Installing node is easy.
+
+<pre>
+git clone git://github.com/ry/node.git 
+cd node 
+git checkout v0.1.32 
+./configure 
+make 
+make install 
+</pre>
+
+
+h2. Checking out source code
+
+All the 12 steps are tagged with step1 to step12. This is how you can get code for tag step1.
+
+<pre>
+git clone git://github.com/neeradotname/node-chat-in-steps.git 
+cd node-chat-in-steps
+git checkout step1
+</pre>
+
+h2. Starting server and visiting page
+
+<pre>
+node server.js
+</pre>
+
+After the server has been started visit "http://localhost:8002":http://localhost:8002 .
+
+
+h2. Functinalities in different steps
+
+h3. step1
 
 * create a server that responds with hello world on port 8002
 
-h2. step2
+h3. step2
 
 * create an index.html and serve it
 
-h2. step3
+h3. step3
 
 * introduce util.js
 * change the logic so that any static file is served
 * show 404 in case no file is found
 
-h2. step4
+h3. step4
 
 * add jquery-1.4.2.js
 * add client.js
 * change index.html to prompt user for nickname
 
-h2. step5
+h3. step5
 
 * send a join request when user enters nick name
 * respond with a JSON in reply to /join request
 
-h2. step6
+h3. step6
 
 * after ther nick name is accepted display chat screen
 
-h2. step7
+h3. step7
 
 * create session object which identifies if a person is already in
 * send this session object back to client when a person joins in
 * if the nick is in use the provide that feedback to user
 
-h2. step8
+h3. step8
 
 * add style.css
 
-h2. step9
+h3. step9
 
 * after logging in display current time
 
-h2. step10
+h3. step10
 
 * display number of active users logging in
 * after showing the toolbar send a request /who
 * capture the number of active users
 
-h2. step11
+h3. step11
 
 * display message that user joined after a user joins chat
 
-h2. step12
+h3. step12
 
 * better timestamp while displaying message
 
+h3. step13
 
+* when user hits enter then invoke send function
