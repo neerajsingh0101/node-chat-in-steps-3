@@ -23,7 +23,7 @@ h2. Checking out source code
 All the 12 steps are tagged with step1 to step12. This is how you can get code for tag step1.
 
 <pre>
-git clone git://github.com/neeradotname/node-chat-in-steps.git 
+git clone git://github.com/neerajdotname/node-chat-in-steps.git 
 cd node-chat-in-steps
 git checkout -b personal_step1 step1
 </pre>
